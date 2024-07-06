@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Avatar from './Avatar'
-import uploadFile from '../helpers/uploadFile'
+import uploadFile from '../helper/uploadFile'
 import Divider from './Divider'
 import axios from 'axios'
 import taost from 'react-hot-toast'
