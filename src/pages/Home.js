@@ -40,10 +40,16 @@ const Home = () => {
 
   /***socket connection */
   useEffect(()=>{
-    const socketConnection = io(process.env.REACT_APP_BACKEND_URL,{
-      auth : {
-        token : localStorage.getItem('token')
+    const socketConnection = io('wss://talkrr-backend.onrender.com', {
+      auth: {
+        token: localStorage.getItem('token')
       },
+      transports: ['websocket'],
+      secure: true 
+    })
+    
+    socketConnection.on('connect_error', (error) => {
+      console.error('Connection Error:', error)
     })
 
     socketConnection.on('onlineUser',(data)=>{
